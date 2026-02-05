@@ -6,10 +6,10 @@ const projetos = {
         subtitulo: "Projeto Integrador | Produtividade & Gamificação",
         desafio: "O objetivo era criar uma aplicação que não apenas listasse tarefas, mas que ajudasse o usuário a manter o foco através de gamificação, adaptando as metas automaticamente baseadas no desempenho.",
         solucao: [
-            "Integração com API da OpenAI para sugerir quebras de tarefas complexas.",
-            "Backend em Python gerenciando a lógica de pontuação e níveis (Gamificação).",
-            "Interface React interativa para feedback visual imediato.",
-            "Algoritmo de recomendação para ajuste de prazos."
+            "Frontend Dinâmico: Interface interativa construída com React e JavaScript para gerenciar o estado das metas em tempo real.",
+            "Estrutura e Estilo: Layout semântico e responsivo desenvolvido com HTML e CSS, focado em usabilidade.",
+            "Backend Robusto: Lógica de servidor implementada em PHP para processar as regras de gamificação e validação de dados.",
+            "Banco de Dados: Persistência segura de dados utilizando SQL para armazenar usuários, tarefas e pontuações."
         ]
     },
     2: {
