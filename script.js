@@ -76,3 +76,18 @@ window.onclick = function(event) {
         fecharModal();
     }
 }
+
+// INTRO ANIMAÇÃO
+window.addEventListener('load', () => {
+    // Trava a rolagem enquanto a intro está na tela
+    document.body.style.overflow = 'hidden';
+
+    // Espera 2.5 segundos e depois remove a tela preta
+    setTimeout(() => {
+        const intro = document.getElementById('intro-screen');
+        intro.classList.add('hidden-intro');
+        
+        // Libera a rolagem do site novamente
+        document.body.style.overflow = 'auto';
+    }, 2500); // Tempo total da intro (2500ms = 2.5 segundos)
+});

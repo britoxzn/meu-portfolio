@@ -16,6 +16,49 @@
     text-decoration: none;
 }
 
+/* --- TELA DE INTRODUÇÃO (SPLASH SCREEN) --- */
+#intro-screen {
+    background-color: #000000 !important; /* Força o preto */
+    z-index: 999999 !important; /* Força ficar em cima de tudo */
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Essa classe só é adicionada pelo JS depois de 2.5s */
+.hidden-intro {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none; /* Garante que dá para clicar no site depois */
+}
+
+/* Linha laranja embaixo igual à referência */
+.intro-line {
+    width: 0;
+    height: 3px;
+    background-color: var(--accent); /* Sua cor laranja */
+    margin: 10px auto 0;
+    animation: expandLine 0.8s ease-out forwards 0.8s; /* Começa depois do texto */
+}
+
+/* Animação do Texto Subindo */
+@keyframes appearUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação da Linha Crescendo */
+@keyframes expandLine {
+    to { width: 60px; }
+}
+
+/* Classe para esconder a tela depois */
+.hidden-intro {
+    opacity: 0;
+    visibility: hidden;
+}
+
 body {
     scroll-behavior: smooth;
     background-color: var(--bg-color);
@@ -446,3 +489,4 @@ footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
     background: var(--accent);
     color: white;
 }
+
