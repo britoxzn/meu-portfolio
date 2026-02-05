@@ -33,12 +33,12 @@
 
 /* Linha laranja embaixo igual à referência */
 .intro-line {
-    width: 0;
-    height: 3px;
-    background-color: var(--accent); /* Sua cor laranja */
-    margin: 10px auto 0;
-    animation: expandLine 0.8s ease-out forwards 0.8s; /* Começa depois do texto */
-}
+        width: 0;
+        height: 4px;
+        background-color: #0044ff; /* <---- É ESTA LINHA AQUI */
+        margin: 15px auto 0;
+        animation: expandLine 0.8s ease-out forwards 0.8s;
+    }
 
 /* Animação do Texto Subindo */
 @keyframes appearUp {
