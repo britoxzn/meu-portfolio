@@ -1,0 +1,448 @@
+/* RESET E VARIÁVEIS */
+:root {
+    --bg-color: #050505; /* Preto quase absoluto */
+    --card-bg: #111111;  /* Cinza muito escuro para cards */
+    --text-main: #ffffff;
+    --text-muted: #888888;
+    --accent: #0044ff;   /* O laranja da sua referência */
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    scroll-behavior: smooth;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+/* TIPOGRAFIA GERAL */
+h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
+h2 { font-size: 2.5rem; font-weight: 500; margin-bottom: 20px; }
+p { color: var(--text-muted); font-size: 1.1rem; }
+.tagline { color: var(--accent); font-size: 0.9rem; margin-bottom: 10px; display: block; letter-spacing: 1px; }
+.destaque { color: var(--text-muted); } /* Deixa parte do título cinza para estilo */
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(5,5,5,0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #222;
+}
+
+.logo { font-weight: 700; font-size: 1.2rem; }
+.logo span { color: var(--accent); }
+
+.links a { color: var(--text-muted); margin: 0 15px; font-size: 0.9rem; transition: 0.3s; }
+.links a:hover { color: var(--text-main); }
+
+.btn-nav {
+    border: 1px solid #333;
+    padding: 8px 20px;
+    border-radius: 50px;
+    color: white;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+.btn-nav:hover { background: var(--accent); border-color: var(--accent); }
+
+/* SEÇÕES GERAIS */
+section { padding: 100px 10%; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 150px;     /* Espaço do topo */
+    padding-bottom: 100px;  /* Espaço de baixo */
+    width: 100%;
+}
+
+/* Crie essa classe NOVA para alinhar o texto */
+.hero-container {
+    width: 100%;
+    max-width: 1200px;      /* MESMA largura do Sobre Mim */
+    margin: 0 auto;         /* Centraliza o bloco na tela */
+    padding: 0 5%;          /* MESMA margem interna do Sobre Mim */
+    text-align: left;       /* Garante que o texto fique na esquerda */
+}
+
+/* Garante que o subtítulo não estique demais */
+.hero-container .subtitulo {
+    max-width: 600px;       /* Limita a largura do texto para leitura confortável */
+    margin-top: 20px;
+}
+
+/* CSS DO LETREIRO (MARQUEE) */
+.marquee-container {
+    position: absolute; /* Fixa ele na parte de baixo da seção Hero */
+    bottom: 50px;       /* Distância do chão */
+    left: 0;
+    width: 100%;        /* Ocupa a tela toda */
+    overflow: hidden;   /* Esconde o que sai da tela */
+    white-space: nowrap;/* Não deixa quebrar linha */
+    opacity: 0.3;       /* Deixa transparente/sutil */
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 20px 0;
+    z-index: 0;         /* Fica atrás de tudo */
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite; /* A animação rodando */
+    font-size: 3rem;    /* Tamanho da letra grande */
+    font-weight: 700;
+    color: #444;        /* Cor cinza escuro */
+}
+
+/* A animação de movimento */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* SOBRE */
+.sobre-container {
+    display: flex; /* Ativa o modo flexível */
+    flex-direction: row; /* Garante que fiquem lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza tudo na tela */
+    gap: 60px; /* Distância ideal entre a foto e o texto */
+    max-width: 1100px; /* Limita a largura para não esticar demais */
+    margin: 0 auto; /* Centraliza o bloco na página */
+}
+
+/* 2. A Moldura da Foto: "Abraça" a imagem */
+.foto-frame {
+    position: relative; /* Segura o detalhe azul no lugar */
+    width: fit-content; /* O PULO DO GATO: A caixa fica do tamanho exato da foto */
+    line-height: 0; /* Remove espaços brancos fantasmas abaixo da imagem */
+}
+
+/* 3. A Foto em si (Retrato Vertical) */
+.foto-sobre {
+    width: 320px;  /* Largura fixa */
+    height: 420px; /* Altura fixa (formato retrato) */
+    object-fit: cover; /* Corta o excesso das laterais automaticamente */
+    object-position: center top; /* Foca no seu rosto */
+    
+    /* Acabamento Dark Mode */
+    border-radius: 8px;
+    filter: brightness(0.8) contrast(1.1); /* Ajuste de luz para o fundo preto */
+    border: 1px solid #333;
+    transition: all 0.4s ease;
+}
+
+/* Efeito ao passar o mouse na foto */
+.foto-sobre:hover {
+    filter: brightness(1) contrast(1); /* Volta ao normal */
+    transform: scale(1.02); /* Leve zoom */
+    border-color: var(--accent); /* Borda fica colorida */
+}
+
+/* 4. O Detalhe "L" (Aquele canto colorido) */
+.foto-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* Posição vertical */
+    right: -15px;  /* Posição horizontal (agora vai ficar grudadinho na foto) */
+    width: 60px;
+    height: 60px;
+    border-bottom: 4px solid var(--accent); /* Espessura da linha */
+    border-right: 4px solid var(--accent);
+    z-index: 1;
+}
+
+/* --- AJUSTE PARA CELULAR (Telas pequenas) --- */
+@media (max-width: 768px) {
+    .sobre-container {
+        flex-direction: column; /* Em celulares, um fica em cima do outro */
+        text-align: center; /* Texto centralizado */
+        gap: 40px;
+    }
+    
+    .foto-sobre {
+        width: 280px; /* Foto um pouco menor no celular */
+        height: 350px;
+    }
+}
+
+/* --- FIM DA ATUALIZAÇÃO --- */
+.stats { display: flex; gap: 40px; margin-top: 30px; }
+.stats h3 { color: var(--accent); font-size: 2rem; margin-bottom: 0; }
+
+/* PROJETOS (CARDS) */
+/* --- SEÇÃO PROJETOS --- */
+
+.projetos {
+    padding: 100px 0; /* Espaçamento vertical */
+    width: 100%;
+}
+
+/* 1. O CONTAINER DE ALINHAMENTO (O mesmo do resto do site) */
+.projetos-container {
+    max-width: 1200px;      /* Largura máxima igual */
+    margin: 0 auto;         /* Centraliza o bloco */
+    padding: 0 5%;          /* Margem interna igual */
+    text-align: left;       /* Alinha textos à esquerda */
+}
+
+.projetos-header {
+    margin-bottom: 60px;    /* Espaço entre título e cards */
+}
+
+.projetos-header h2 {
+    font-size: 3rem;
+    color: white;
+}
+
+/* 2. O GRID (Layout Bento) */
+.grid-projetos {
+    display: grid;
+    /* Cria colunas automáticas de no mínimo 350px */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 25px; /* Espaço entre os cards */
+}
+
+/* 3. O DESIGN DOS CARDS (Igual referência) */
+.card {
+    background: #0a0a0a;    /* Fundo quase preto (Dark theme) */
+    border: 1px solid #222; /* Borda muito sutil */
+    border-radius: 12px;    /* Cantos arredondados */
+    padding: 40px;          /* Espaço interno generoso */
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;      /* Altura mínima para ficarem uniformes */
+}
+
+/* Efeito Hover (Mouse em cima) */
+.card:hover {
+    border-color: var(--accent); /* Borda fica laranja */
+    background: #0f0f0f;         /* Fundo clareia levemente */
+    transform: translateY(-5px); /* Sobe um pouquinho */
+}
+
+/* Estilo para o Card de Destaque (Ocupa 2 colunas se tiver espaço) */
+@media (min-width: 768px) {
+    .card.destaque {
+        grid-column: span 2; /* Faz o primeiro card esticar */
+    }
+}
+
+/* Títulos e Textos do Card */
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--accent); /* Ícone laranja */
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* 4. AS TAGS (Estilo Pílula) */
+.tags {
+    display: flex;
+    flex-wrap: wrap; /* Se tiver muitas tags, quebra linha */
+    gap: 10px;
+    margin-top: auto; /* Empurra as tags para o final do card */
+}
+
+.tags span {
+    font-size: 0.8rem;
+    color: #bbb;
+    background: rgba(255,255,255,0.05); /* Fundo transparente leve */
+    border: 1px solid #333;
+    padding: 6px 14px;
+    border-radius: 50px; /* Formato pílula */
+    font-weight: 500;
+}
+
+/* CONTATO */
+.contato { text-align: center; }
+.botoes-contato { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
+
+.btn-primary, .btn-outline {
+    padding: 15px 40px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary { background: white; color: black; border: 1px solid white; }
+.btn-primary:hover { background: #ddd; }
+
+.btn-outline { background: transparent; color: white; border: 1px solid #333; }
+.btn-outline:hover { border-color: white; }
+
+footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
+
+/* --- MODAL (JANELA POP-UP) --- */
+
+.modal-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Fundo escuro transparente */
+    backdrop-filter: blur(5px); /* Desfoque no fundo igual iPhone */
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-box {
+    background: #0a0a0a;
+    width: 100%;
+    max-width: 800px; /* Largura máxima da caixa */
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+    max-height: 90vh; /* Não deixa passar da altura da tela */
+    overflow-y: auto; /* Permite rolar se o texto for grande */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Botão Fechar (X) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.close-btn:hover { color: white; }
+
+/* Tipografia do Modal */
+.modal-header { margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 20px; }
+.modal-icon-display { font-size: 3rem; color: var(--accent); margin-bottom: 10px; }
+#modal-titulo { font-size: 2.5rem; color: white; margin-bottom: 5px; }
+.modal-subtitle { color: #888; font-size: 1.1rem; }
+
+.section-title {
+    color: var(--accent); /* Laranja */
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+#modal-desafio, .tech-list li {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Estilo da Lista (Setinhas) */
+.tech-list { list-style: none; }
+.tech-list li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+.tech-list li::before {
+    content: '>'; 
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* ESTILO DO FORMULÁRIO DE CONTATO */
+.form-contato {
+    margin-top: 40px;
+    max-width: 500px; /* Largura máxima para não ficar esticado */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.form-group label {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.form-group input, 
+.form-group textarea {
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent); /* Fica laranja ao clicar */
+}
+
+/* Ajuste no botão para ele caber no form */
+.btn-primary {
+    border: none;
+    background: white;
+    color: black;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    color: white;
+}
