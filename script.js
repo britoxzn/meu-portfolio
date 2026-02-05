@@ -82,5 +82,5 @@ window.addEventListener('load', () => {
     // Aumentei para 3500 (3.5 segundos) para você ter tempo de ver a intro
     setTimeout(() => {
         document.getElementById('intro-screen').classList.add('hidden-intro');
-    }, 3500); 
+    }, 2500); 
 });
