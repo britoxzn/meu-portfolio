@@ -25,15 +25,15 @@ const projetos = {
         ]
     },
     3: {
-        titulo: "Analisador de Odds",
-        icon: '<i class="ri-line-chart-line"></i>',
-        subtitulo: "Ferramenta Analítica | Data Science",
-        desafio: "Identificar oportunidades de valor em tempo real em um mercado volátil, onde a velocidade de processamento da informação é crucial para a tomada de decisão.",
+        titulo: "CineVerse Explorer",
+        icon: '<i class="ri-movie-2-line"></i>', // Ícone de filme do Remix Icon
+        subtitulo: "Exploração de Filmes | API REST & LocalStorage",
+        desafio: "Criar uma plataforma de filmes fluida que consumisse dados externos em tempo real, garantindo que o usuário pudesse favoritar seus títulos preferidos sem precisar de um banco de dados externo pesado.",
         solucao: [
-            "Web Scraping de múltiplas fontes de dados simultâneas.",
-            "Uso de Pandas (Python) para limpeza e comparação estatística de odds.",
-            "Algoritmo matemático para identificar arbitragem (lucro garantido).",
-            "Painel de visualização de dados simplificado."
+            "Consumo de API: Integração completa com a API do TMDB para busca de títulos, capas e detalhes técnicos.",
+            "Persistência Local: Implementação de LocalStorage para salvar a lista de favoritos do usuário diretamente no navegador.",
+            "Interface Dinâmica: Manipulação avançada do DOM para exibir modais de detalhes e notificações Toast de feedback.",
+            "Experiência do Usuário: Criação de uma Splash Screen profissional e spinners de carregamento para suavizar a espera dos dados."
         ]
     }
 };
