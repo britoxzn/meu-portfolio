@@ -13,15 +13,14 @@ const projetos = {
         ]
     },
     2: {
-        titulo: "Sistema de Biblioteca",
+        titulo: "Nexus Ledger - SaaS Financeiro",
         icon: '<i class="ri-book-open-line"></i>',
-        subtitulo: "Automação de Gestão | Python & SQL",
-        desafio: "Substituir planilhas manuais propensas a erro por um sistema robusto que controlasse milhares de registros de empréstimos, devoluções e cálculo automático de multas.",
+        subtitulo: "Sistema Full Stack para controle financeiro empresarial.",
+        desafio: "Desenvolver uma aplicação completa que saísse do ambiente local (localhost) para a nuvem, resolvendo problemas de CORS, persistência de dados e comunicação entre Frontend e Backend em servidores diferentes.",
         solucao: [
-            "Banco de dados SQL estruturado para garantir integridade dos dados.",
-            "Lógica de validação em Python para impedir empréstimos duplicados.",
-            "Sistema de busca otimizado para encontrar livros por ISBN ou título.",
-            "Geração automática de relatórios de atraso."
+            "Backend: API robusta construída com Python (FastAPI) e SQLAlchemy.",
+            "Frontend: Interface responsiva moderna consumindo a API via Fetch, com gráficos interativos usando Chart.js.",
+            "Infraestrutura: Deploy automatizado do Backend no Render e do Frontend na Vercel.",
         ]
     },
     3: {
